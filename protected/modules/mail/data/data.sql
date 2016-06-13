@@ -1,0 +1,37 @@
+CREATE TABLE `email_template` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(100) NOT NULL,
+	`create_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`update_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=0;
+
+
+CREATE TABLE `email_translation` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`email_temp_id` INT(11) NOT NULL,
+	`lang_id` INT(11) NOT NULL,
+	`subject` VARCHAR(255) NOT NULL,
+	`content` TEXT NOT NULL,
+        `attach_file` VARCHAR(255),
+	PRIMARY KEY (`id`),
+	INDEX `fk_EmailTrans_EmailTemp` (`email_temp_id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=0;
+
+CREATE TABLE `language` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`code` VARCHAR(20) NOT NULL,
+	`name` VARCHAR(100) NOT NULL,
+        `create_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`update_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=0;

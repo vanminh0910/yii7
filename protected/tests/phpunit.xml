@@ -1,0 +1,27 @@
+<phpunit bootstrap="bootstrap.php"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false">
+
+    <selenium>
+        <browser name="Internet Explorer" browser="*iexplore" />
+        <browser name="Firefox" browser="*firefox" />
+    </selenium>
+
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=yii7;host=localhost" />
+        <var name="DB_USER" value="root" />
+        <var name="DB_PASSWD" value="" />
+        <var name="DB_DBNAME" value="yii7" />
+    </php>
+
+
+    <testsuites>
+        <testsuite name="123">
+            <directory>unit</directory>
+        </testsuite>
+    </testsuites>
+
+</phpunit>
